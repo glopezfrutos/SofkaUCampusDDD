@@ -1,18 +1,26 @@
 package com.sofkau.DramaFestivalDDD.dramaplay;
 
 import co.com.sofka.domain.generic.Entity;
-import com.sofkau.DramaFestivalDDD.dramaplay.values.RequirementDescription;
-import com.sofkau.DramaFestivalDDD.dramaplay.values.RequirementId;
-import com.sofkau.DramaFestivalDDD.dramaplay.values.RequirementType;
+import com.sofkau.DramaFestivalDDD.dramaplay.values.*;
+
+import java.util.Objects;
 
 public class Requirement extends Entity<RequirementId> {
-    private final RequirementType requirementType;
-    private final RequirementDescription requirementDescription;
+    private RequirementType requirementType;
+    private RequirementDescription requirementDescription;
 
     public Requirement(RequirementId entityId, RequirementType requirementType, RequirementDescription requirementDescription) {
         super(entityId);
         this.requirementType = requirementType;
         this.requirementDescription = requirementDescription;
+    }
+
+    public void updateRequirementType(RequirementType requirementType){
+        this.requirementType = Objects.requireNonNull(requirementType);
+    }
+
+    public void updateRequirementDescription(RequirementDescription requirementDescription){
+        this.requirementDescription = Objects.requireNonNull(requirementDescription);
     }
 
     public RequirementType requirementType() {
