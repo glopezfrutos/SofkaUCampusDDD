@@ -1,4 +1,6 @@
 package com.sofkau.DramaFestivalDDD.executiveproducer.values;
 
-public class StageManagerId {
+import co.com.sofka.domain.generic.Identity;
+
+public class StageManagerId extends Identity {
 }

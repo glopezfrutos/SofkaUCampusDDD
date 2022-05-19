@@ -1,4 +1,10 @@
 package com.sofkau.DramaFestivalDDD.executiveproducer.values;
 
-public class TechnicianType {
+import co.com.sofka.domain.generic.ValueObject;
+
+public class TechnicianType implements ValueObject<String> {
+    @Override
+    public String value() {
+        return null;
+    }
 }

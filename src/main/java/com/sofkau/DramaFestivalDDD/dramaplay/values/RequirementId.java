@@ -1,4 +1,6 @@
 package com.sofkau.DramaFestivalDDD.dramaplay.values;
 
-public class RequirementId {
+import co.com.sofka.domain.generic.Identity;
+
+public class RequirementId extends Identity {
 }

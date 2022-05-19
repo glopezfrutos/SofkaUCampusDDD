@@ -1,4 +1,10 @@
 package com.sofkau.DramaFestivalDDD.dramaplay.values;
 
-public class RequirementDescription {
+import co.com.sofka.domain.generic.ValueObject;
+
+public class RequirementDescription implements ValueObject<String> {
+    @Override
+    public String value() {
+        return null;
+    }
 }
