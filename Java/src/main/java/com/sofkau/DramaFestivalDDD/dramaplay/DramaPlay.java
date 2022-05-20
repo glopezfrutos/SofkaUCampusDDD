@@ -4,6 +4,8 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import com.sofkau.DramaFestivalDDD.dramaplay.events.DramaPlayCreated;
 import com.sofkau.DramaFestivalDDD.dramaplay.values.*;
 import com.sofkau.DramaFestivalDDD.shared.values.Name;
+import com.sofkau.DramaFestivalDDD.dramaplay.events.*;
+
 
 import java.util.Objects;
 import java.util.Optional;
@@ -14,15 +16,15 @@ public class DramaPlay extends AggregateEvent<DramaPlayId> {
     protected Set<Requirement> requirements;
     protected Set<Performer> performers;
 
-    public DramaPlay(DramaPlayId entityId, Name name) {
+    public DramaPlay(DramaPlayId entityId, Name name, Set<Requirement> requirements, Set<Performer> performers) {
         super(entityId);
-        appendChange(new DramaPlayCreated(name)).apply();
+        appendChange(new DramaPlayCreated(name, requirements, performers)).apply();
     }
 
     public void updateDramaPlayName(DramaPlayId entityId, Name name){
         Objects.requireNonNull(entityId);
         Objects.requireNonNull(name);
-        appendChange(new DramaPlayNameUpdate(name)).apply();
+        appendChange(new DramaPlayNameUpdated(entityId, name)).apply();
     }
 
     public void addRequirement(RequirementId entityId, RequirementType requirementType, RequirementDescription requirementDescription){

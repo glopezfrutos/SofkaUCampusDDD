@@ -4,6 +4,7 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import com.sofkau.DramaFestivalDDD.dramaplay.values.DramaPlayId;
 import com.sofkau.DramaFestivalDDD.festival.events.FestivalCreated;
 import com.sofkau.DramaFestivalDDD.festival.values.*;
+import com.sofkau.DramaFestivalDDD.festival.events.*;
 import com.sofkau.DramaFestivalDDD.shared.values.Name;
 
 import java.util.Objects;
@@ -17,9 +18,9 @@ public class Festival extends AggregateEvent<FestivalId> {
     protected Set<Space> spaces;
     protected Set<Schedule> festivalSchedule;
 
-    public Festival(FestivalId entityId, Name name) {
+    public Festival(FestivalId entityId, Name name, Date festivalStartDate, Date festivalEndDate, Set<Space> spaces, Set<Schedule> festivalSchedule) {
         super(entityId);
-        appendChange(new FestivalCreated(name)).apply();
+        appendChange(new FestivalCreated(entityId, name, festivalStartDate, festivalEndDate, spaces, festivalSchedule)).apply();
     }
 
     public void updateFestivalName(FestivalId entityId, Name name){
