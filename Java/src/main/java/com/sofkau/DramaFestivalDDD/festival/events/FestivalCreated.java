@@ -1,7 +1,7 @@
 package com.sofkau.DramaFestivalDDD.festival.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import com.sofkau.DramaFestivalDDD.festival.values.Name;
+import com.sofkau.DramaFestivalDDD.shared.values.Name;
 
 public class FestivalCreated extends DomainEvent {
     private final Name name;

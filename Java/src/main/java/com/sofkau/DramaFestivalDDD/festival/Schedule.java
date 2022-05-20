@@ -2,8 +2,6 @@ package com.sofkau.DramaFestivalDDD.festival;
 
 import co.com.sofka.domain.generic.Entity;
 import com.sofkau.DramaFestivalDDD.dramaplay.values.DramaPlayId;
-import com.sofkau.DramaFestivalDDD.dramaplay.values.Name;
-import com.sofkau.DramaFestivalDDD.dramaplay.values.PerformerIsUnderAge;
 import com.sofkau.DramaFestivalDDD.festival.values.Date;
 import com.sofkau.DramaFestivalDDD.festival.values.ScheduleId;
 import com.sofkau.DramaFestivalDDD.festival.values.SpaceId;

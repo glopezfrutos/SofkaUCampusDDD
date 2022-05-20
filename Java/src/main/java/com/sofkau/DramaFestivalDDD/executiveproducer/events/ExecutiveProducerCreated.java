@@ -1,7 +1,7 @@
 package com.sofkau.DramaFestivalDDD.executiveproducer.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import com.sofkau.DramaFestivalDDD.executiveproducer.values.Name;
+import com.sofkau.DramaFestivalDDD.shared.values.Name;
 
 public class ExecutiveProducerCreated extends DomainEvent {
     private final Name name;

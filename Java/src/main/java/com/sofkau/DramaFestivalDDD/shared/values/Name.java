@@ -1,4 +1,4 @@
-package com.sofkau.DramaFestivalDDD.festival.values;
+package com.sofkau.DramaFestivalDDD.shared.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 

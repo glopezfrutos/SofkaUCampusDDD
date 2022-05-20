@@ -2,9 +2,7 @@ package com.sofkau.DramaFestivalDDD.executiveproducer;
 
 import co.com.sofka.domain.generic.Entity;
 import com.sofkau.DramaFestivalDDD.dramaplay.DramaPlay;
-import com.sofkau.DramaFestivalDDD.dramaplay.values.RequirementDescription;
-import com.sofkau.DramaFestivalDDD.dramaplay.values.RequirementType;
-import com.sofkau.DramaFestivalDDD.executiveproducer.values.Name;
+import com.sofkau.DramaFestivalDDD.shared.values.Name;
 import com.sofkau.DramaFestivalDDD.executiveproducer.values.StageManagerId;
 
 import java.util.Objects;

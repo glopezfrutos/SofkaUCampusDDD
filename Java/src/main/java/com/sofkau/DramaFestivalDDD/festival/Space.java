@@ -1,7 +1,7 @@
 package com.sofkau.DramaFestivalDDD.festival;
 
 import co.com.sofka.domain.generic.Entity;
-import com.sofkau.DramaFestivalDDD.festival.values.Name;
+import com.sofkau.DramaFestivalDDD.shared.values.Name;
 import com.sofkau.DramaFestivalDDD.festival.values.SpaceId;
 
 import java.util.Objects;

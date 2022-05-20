@@ -1,7 +1,7 @@
 package com.sofkau.DramaFestivalDDD.dramaplay;
 
 import co.com.sofka.domain.generic.Entity;
-import com.sofkau.DramaFestivalDDD.dramaplay.values.Name;
+import com.sofkau.DramaFestivalDDD.shared.values.Name;
 import com.sofkau.DramaFestivalDDD.dramaplay.values.PerformerId;
 import com.sofkau.DramaFestivalDDD.dramaplay.values.PerformerIsUnderAge;
 
