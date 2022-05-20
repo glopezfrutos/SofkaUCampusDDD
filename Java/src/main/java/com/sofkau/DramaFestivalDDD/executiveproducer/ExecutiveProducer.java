@@ -1,6 +1,7 @@
 package com.sofkau.DramaFestivalDDD.executiveproducer;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import com.sofkau.DramaFestivalDDD.dramaplay.DramaPlay;
 import com.sofkau.DramaFestivalDDD.executiveproducer.events.ExecutiveProducerCreated;
 import com.sofkau.DramaFestivalDDD.executiveproducer.values.*;
@@ -8,6 +9,7 @@ import com.sofkau.DramaFestivalDDD.executiveproducer.events.*;
 import com.sofkau.DramaFestivalDDD.festival.Festival;
 import com.sofkau.DramaFestivalDDD.shared.values.Name;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -30,9 +32,15 @@ public class ExecutiveProducer extends AggregateEvent<ExecutiveProducerId> {
                 stageManagers, technicians, executiveProducerId)).apply();
     }
 
-    public ExecutiveProducer(ExecutiveProducerId entityId) {
+    private ExecutiveProducer(ExecutiveProducerId entityId) {
         super(entityId);
         subscribe(new ExecutiveProducerChange(this));
+    }
+
+    public static ExecutiveProducer from(ExecutiveProducerId executiveProducerId, List<DomainEvent> events) {
+        var executiveProducer = new ExecutiveProducer(executiveProducerId);
+        events.forEach(executiveProducer::applyEvent);
+        return executiveProducer;
     }
 
     public void updateExecutiveProducerName(ExecutiveProducerId entityId, Name name){

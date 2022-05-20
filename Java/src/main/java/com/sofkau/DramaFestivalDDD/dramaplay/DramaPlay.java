@@ -1,12 +1,14 @@
 package com.sofkau.DramaFestivalDDD.dramaplay;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import com.sofkau.DramaFestivalDDD.dramaplay.events.DramaPlayCreated;
 import com.sofkau.DramaFestivalDDD.dramaplay.values.*;
 import com.sofkau.DramaFestivalDDD.shared.values.Name;
 import com.sofkau.DramaFestivalDDD.dramaplay.events.*;
 
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -21,9 +23,15 @@ public class DramaPlay extends AggregateEvent<DramaPlayId> {
         appendChange(new DramaPlayCreated(name, requirements, performers)).apply();
     }
 
-    public DramaPlay(DramaPlayId entityId) {
+    private DramaPlay(DramaPlayId entityId) {
         super(entityId);
         subscribe(new DramaPlayChange(this));
+    }
+
+    public static DramaPlay from(DramaPlayId dramaPlayId, List<DomainEvent> events) {
+        var dramaPlay = new DramaPlay(dramaPlayId);
+        events.forEach(dramaPlay::applyEvent);
+        return dramaPlay;
     }
 
     public void updateDramaPlayName(DramaPlayId entityId, Name name){
