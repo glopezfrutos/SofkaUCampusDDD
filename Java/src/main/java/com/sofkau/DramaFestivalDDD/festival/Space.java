@@ -7,18 +7,18 @@ import com.sofkau.DramaFestivalDDD.festival.values.SpaceId;
 import java.util.Objects;
 
 public class Space extends Entity<SpaceId> {
-    private Name name;
+    private Name spaceName;
 
-    public Space(SpaceId entityId, Name name) {
+    public Space(SpaceId entityId, Name spaceName) {
         super(entityId);
-        this.name = name;
+        this.spaceName = spaceName;
     }
 
-    public void updateName(Name name){
-        this.name = Objects.requireNonNull(name);
+    public void updateSpaceName(Name name){
+        this.spaceName = Objects.requireNonNull(name);
     }
 
-    public Name name() {
-        return name;
+    public Name spaceName() {
+        return spaceName;
     }
 }

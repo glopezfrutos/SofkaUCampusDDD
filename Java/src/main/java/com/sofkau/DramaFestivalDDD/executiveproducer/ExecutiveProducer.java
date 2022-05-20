@@ -30,6 +30,11 @@ public class ExecutiveProducer extends AggregateEvent<ExecutiveProducerId> {
                 stageManagers, technicians, executiveProducerId)).apply();
     }
 
+    public ExecutiveProducer(ExecutiveProducerId entityId) {
+        super(entityId);
+        subscribe(new ExecutiveProducerChange(this));
+    }
+
     public void updateExecutiveProducerName(ExecutiveProducerId entityId, Name name){
         Objects.requireNonNull(entityId);
         Objects.requireNonNull(name);
@@ -54,10 +59,10 @@ public class ExecutiveProducer extends AggregateEvent<ExecutiveProducerId> {
         appendChange(new StageManagerNameUpdated(entityId, name)).apply();
     }
 
-    public void updateStageManagerListOfPlaysInCharge(StageManagerId entityId, Set<Festival> listOfFestivalsInCharge){
+    public void updateStageManagerListOfPlaysInCharge(StageManagerId entityId, Set<DramaPlay> listOfPlaysInCharge){
         Objects.requireNonNull(entityId);
-        Objects.requireNonNull(listOfFestivalsInCharge);
-        appendChange(new StageManagerListOfPlaysInChargeUpdated(entityId, listOfFestivalsInCharge)).apply();
+        Objects.requireNonNull(listOfPlaysInCharge);
+        appendChange(new StageManagerListOfPlaysInChargeUpdated(entityId, listOfPlaysInCharge)).apply();
     }
 
     public void addTechnician(TechnicianId entityId, Name name, Set<DramaPlay> listOfPlaysInCharge, TechnicianType technicianType){
@@ -93,7 +98,7 @@ public class ExecutiveProducer extends AggregateEvent<ExecutiveProducerId> {
                 .findFirst();
     }
 
-    public Optional<Technician> getPerformerById(TechnicianId entityId){
+    public Optional<Technician> getTechnicianById(TechnicianId entityId){
         return technicians()
                 .stream()
                 .filter(technician -> technician.identity().equals(entityId))

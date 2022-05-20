@@ -11,17 +11,17 @@ import java.util.Objects;
 public class Schedule extends Entity<ScheduleId> {
     private final DramaPlayId dramaPlayId;
     private final SpaceId spaceId;
-    private Date date;
+    private Date dramaPlayDate;
 
-    public Schedule(ScheduleId entityId, DramaPlayId dramaPlayId, SpaceId spaceId, Date date) {
+    public Schedule(ScheduleId entityId, DramaPlayId dramaPlayId, SpaceId spaceId, Date dramaPlayDate) {
         super(entityId);
         this.dramaPlayId = dramaPlayId;
         this.spaceId = spaceId;
-        this.date = date;
+        this.dramaPlayDate = dramaPlayDate;
     }
 
-    public void updateDate(Date date){
-        this.date = Objects.requireNonNull(date);
+    public void updateScheduleDate(Date date){
+        this.dramaPlayDate = Objects.requireNonNull(date);
     }
 
     public DramaPlayId dramaPlayId() {
@@ -32,7 +32,7 @@ public class Schedule extends Entity<ScheduleId> {
         return spaceId;
     }
 
-    public Date date() {
-        return date;
+    public Date dramaPlayDate() {
+        return dramaPlayDate;
     }
 }

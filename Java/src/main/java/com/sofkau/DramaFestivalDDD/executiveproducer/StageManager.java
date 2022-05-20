@@ -9,25 +9,25 @@ import java.util.Objects;
 import java.util.Set;
 
 public class StageManager extends Entity<StageManagerId> {
-    private Name name;
+    private Name stageManagerName;
     private Set<DramaPlay> listOfPlaysInCharge;
 
-    public StageManager(StageManagerId entityId, Name name, Set<DramaPlay> listOfPlaysInCharge) {
+    public StageManager(StageManagerId entityId, Name stageManagerName, Set<DramaPlay> listOfPlaysInCharge) {
         super(entityId);
-        this.name = name;
+        this.stageManagerName = stageManagerName;
         this.listOfPlaysInCharge = listOfPlaysInCharge;
     }
 
-    public void updateName(Name name){
-        this.name = Objects.requireNonNull(name);
+    public void updateStageManagerName(Name name){
+        this.stageManagerName = Objects.requireNonNull(name);
     }
 
     public void updateListOfPlaysInCharge(Set<DramaPlay> listOfPlaysInCharge){
         this.listOfPlaysInCharge = Objects.requireNonNull(listOfPlaysInCharge);
     }
 
-    public Name name() {
-        return name;
+    public Name stageManagerName() {
+        return stageManagerName;
     }
 
     public Set<DramaPlay> listOfPlaysInCharge() {

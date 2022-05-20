@@ -23,6 +23,11 @@ public class Festival extends AggregateEvent<FestivalId> {
         appendChange(new FestivalCreated(entityId, name, festivalStartDate, festivalEndDate, spaces, festivalSchedule)).apply();
     }
 
+    public Festival(FestivalId entityId) {
+        super(entityId);
+        subscribe(new FestivalChange(this));
+    }
+
     public void updateFestivalName(FestivalId entityId, Name name){
         Objects.requireNonNull(entityId);
         Objects.requireNonNull(name);
@@ -74,7 +79,7 @@ public class Festival extends AggregateEvent<FestivalId> {
                 .findFirst();
     }
 
-    public Optional<Space> getPerformerById(SpaceId entityId){
+    public Optional<Space> getSpaceById(SpaceId entityId){
         return spaces()
                 .stream()
                 .filter(space -> space.identity().equals(entityId))

@@ -10,19 +10,19 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Technician extends Entity<TechnicianId> {
-    private Name name;
+    private Name technicianName;
     private Set<DramaPlay> listOfPlaysInCharge;
     private TechnicianType technicianType;
 
-    public Technician(TechnicianId entityId, Name name, Set<DramaPlay> listOfPlaysInCharge, TechnicianType technicianType) {
+    public Technician(TechnicianId entityId, Name technicianName, Set<DramaPlay> listOfPlaysInCharge, TechnicianType technicianType) {
         super(entityId);
-        this.name = name;
+        this.technicianName = technicianName;
         this.listOfPlaysInCharge = listOfPlaysInCharge;
         this.technicianType = technicianType;
     }
 
-    public void updateName(Name name){
-        this.name = Objects.requireNonNull(name);
+    public void updateTechnicianName(Name name){
+        this.technicianName = Objects.requireNonNull(name);
     }
 
     public void updateListOfPlaysInCharge(Set<DramaPlay> listOfPlaysInCharge){
@@ -33,8 +33,8 @@ public class Technician extends Entity<TechnicianId> {
         this.technicianType = Objects.requireNonNull(technicianType);
     }
 
-    public Name name() {
-        return name;
+    public Name technicianName() {
+        return technicianName;
     }
 
     public Set<DramaPlay> listOfPlaysInCharge() {

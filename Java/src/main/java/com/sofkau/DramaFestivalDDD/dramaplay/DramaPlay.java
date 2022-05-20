@@ -21,6 +21,11 @@ public class DramaPlay extends AggregateEvent<DramaPlayId> {
         appendChange(new DramaPlayCreated(name, requirements, performers)).apply();
     }
 
+    public DramaPlay(DramaPlayId entityId) {
+        super(entityId);
+        subscribe(new DramaPlayChange(this));
+    }
+
     public void updateDramaPlayName(DramaPlayId entityId, Name name){
         Objects.requireNonNull(entityId);
         Objects.requireNonNull(name);
